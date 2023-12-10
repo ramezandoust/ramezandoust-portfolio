@@ -1,13 +1,39 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 3rem;
+    padding: 6rem;
+    width: 100%;
+    min-height: 100vh;
+  }
+  .col {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .mypic {
+    border-radius: 1rem;
+    cursor: pointer;
+    filter: grayscale(1);
+    transition: all 0.3s;
+  }
 }
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
+  .mypic:hover {
+    filter: none;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

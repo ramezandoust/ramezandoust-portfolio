@@ -13,6 +13,9 @@
     padding: 6rem;
     width: 100%;
     min-height: 100vh;
+    background-color: #aaaaaa; //ceac38
+    color: #000000;
+    transition: all 0.3s;
   }
   .col {
     width: 50%;
@@ -23,16 +26,20 @@
   }
 
   .mypic {
-    border-radius: 1rem;
+    border-radius: 50%;
     cursor: pointer;
     filter: grayscale(1);
-    transition: all 0.3s;
+    transition: filter 0.3s;
   }
 }
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .mypic:hover {
     filter: none;
+  }
+  .row:has(.mypic:hover) {
+    background-color: #ceac38;
+    color: #f7f7f7;
   }
 }
 

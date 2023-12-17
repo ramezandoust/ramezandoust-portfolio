@@ -1,50 +1,69 @@
+@import "./mixin.scss";
+
 .main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    column-gap: 3rem;
-    padding: 6rem;
-    width: 100%;
-    min-height: 100vh;
-    background-color: #aaaaaa; //ceac38
-    color: #000000;
-    transition: all 0.3s;
-  }
-  .col {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
+  .sec1 {
+    @include section100;
 
-  .mypic {
-    border-radius: 50%;
-    cursor: pointer;
-    filter: grayscale(1);
-    transition: filter 0.3s;
+    .mainAvatar {
+      position: relative;
+
+      .starRotate {
+        width: 430px;
+        height: 400px;
+        position: absolute;
+        top: auto;
+        left: auto;
+        user-select: none;
+        filter: contrast(0.5);
+        animation: spin 45s linear infinite;
+        transition: filter 0.3s;
+        z-index: 3;
+      }
+
+      .mypic {
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        cursor: pointer;
+        filter: grayscale(1);
+        transition: filter 0.3s;
+        z-index: 4;
+      }
+    }
   }
 }
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
-  .mypic:hover {
-    filter: none;
-  }
-  .row:has(.mypic:hover) {
-    background-color: #ceac38;
-    color: #f7f7f7;
+  .sec1 {
+    &:has(.mypic:hover) {
+      background-color: #ceac38;
+      color: #f7f7f7;
+
+      .starRotate {
+        filter: sepia(3);
+      }
+      .mypic {
+        filter: none;
+      }
+    }
   }
 }
 
 @media (prefers-color-scheme: dark) {
   .logo {
     filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }

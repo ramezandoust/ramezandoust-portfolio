@@ -4,9 +4,10 @@ import styles from "./page.module.scss";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.row}>
-        <div className={styles.col}>
-          <Image className={styles.mypic} src="/ramezandoust.jpeg" alt="ramezandoust" width={400} height={400} />
+      <div className={styles.sec1}>
+        <div className={`${styles.col} ${styles.mainAvatar}`}>
+          <Image className={styles.starRotate} src="/star-rotate.png" alt="star" width={420} height={390} priority />
+          <Image className={styles.mypic} src="/ramezandoust.jpg" alt="ramezandoust" width={350} height={350} />
         </div>
 
         <div className={styles.col}>
